@@ -34,12 +34,22 @@
             box-sizing: border-box;
         }
 
+        article {
+            margin-bottom: 30px;
+        }
+
         .post-image {
             width: 100%;
             height: auto;
             border-radius: 6px;
             display: block;
             margin-bottom: 20px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 6px 12px;
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -51,34 +61,49 @@
     </header>
 
     <main>
-    </div>   
         <article>
             <img class="post-image" src="carlos.png" alt="Carro esportivo moderno em alta velocidade em uma estrada sinuosa à beira-mar, com iluminação dramática ao pôr do sol e montanhas ao fundo.">
-            
-            <h2>Meu Primeiro Post</h2>
-            <p><strong>Por:</strong> Carlos Cesare</p>
-            <p>Boas-vindas ao meu blog! Aqui vou compartilhar dicas de programação, curiosidades e conhecimentos sobre automóveis.</p>
+            <div>
+                <h2>Meu Primeiro Post</h2>
+                <p><strong>Por:</strong> Carlos Cesare</p>
+                <p>Boas-vindas ao meu blog! Aqui vou compartilhar dicas de programação, curiosidades e conhecimentos sobre automóveis.</p>
+                <button>🚗 <span>0</span></button>
+                <button>⭐ <span>0</span></button>
+            </div>
         </article>
-        <button>🚗<span>0</span></button>/button>
-        <button>⭐​<span>0</span></button>/button>
-     <div>
-        
+     
+        <article>
+            <img class="post-image" src="carlos.png" alt="Carro esportivo moderno em alta velocidade em uma estrada sinuosa à beira-mar, com iluminação dramática ao pôr do sol e montanhas ao fundo.">
+            <div>
+                <h2>Meu Segundo Post</h2>
+                <p><strong>Por:</strong> Carlos Cesare</p>
+                <p>Boas-vindas ao meu blog! Aqui vou compartilhar dicas de programação, curiosidades e conhecimentos sobre automóveis.</p>
+                <button>🚗 <span>0</span></button>
+                <button>⭐ <span>0</span></button>
+            </div>
+        </article>
     </main>
 
+    <script>
+        // Seleciona TODOS os botões da página
+        const botoes = document.querySelectorAll("button");
+
+        // Aplica o evento em cada um individualmente
+        botoes.forEach(function(botao) {
+            let curtiu = false;
+
+            botao.addEventListener("click", function() {
+                let texto = botao.querySelector("span");
+
+                if (!curtiu) {
+                    texto.textContent = Number(texto.textContent) + 1;
+                    curtiu = true;
+                } else {
+                    texto.textContent = Number(texto.textContent) - 1;
+                    curtiu = false;
+                }
+            });
+        });
+    </script>
 </body>
-<script>
-    const botao = document.querySelector("button");
-
-    botoes.forEach(function(botao) {
-    botao.addEventListener("click", botaoClicado);
-
-    function botaoClicado() {
-        console.log("fui clicado");
-        let texto = botao.querySelector("span");
-        texto.textContent++;
-    }}
-);
-
-
-</script>
 </html>
